@@ -32,7 +32,7 @@ module.exports = {
 
   loginSchema: Joi.object({
     email: Joi.string()
-      .email({ minDomainSegments: 2, tlds: { allow: ['kw.ac.kr'] } })
+      //.email({ minDomainSegments: 2, tlds: { allow: ['kw.ac.kr'] } })
       .required()
       .error(new Error('이메일 또는 패스워드를 확인해주세요.')),
     password: Joi.string()
