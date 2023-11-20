@@ -1,7 +1,7 @@
 const multer = require('multer');
 const multerS3 = require('multer-s3'); // multer-s3이 아닌 multer-s3-transform을 임포트
 const s3 = require('../config/s3');
-const { Community } = require('../models');
+const { Diaries } = require('../models');
 
 class S3ImageController {
   upload = multer({
@@ -26,8 +26,8 @@ class S3ImageController {
   });
 
   delete_file = async (req, res, next) => {
-    const { communityId } = req.params;
-    const imgName = await Community.findOne({ where: { communityId } });
+    const { diaryId } = req.params;
+    const imgName = await Diaries.findOne({ where: { diaryId } });
 
     const s3ImgName = imgName.image.split('/').pop()
 
