@@ -1,4 +1,4 @@
-const CommentRepository = require('../repositories/commensts.repositories');
+const CommentRepository = require('../repositories/comments.repositories');
 
 class CommentService {
   commentService = new CommentRepository();

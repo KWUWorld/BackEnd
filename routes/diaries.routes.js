@@ -5,7 +5,7 @@ const authMiddleware = require('../middlewares/authMiddlewares');
 const DiariyController = require('../controllers/diaries.controllers');
 const diaryController = new DiariyController();
 
-const Upload = require('../middlewares/diaryImageUploadMiddleware');
+const Upload = require('../middlewares/ImgUploadMiddleware');
 const upload = new Upload();
 
 router.get('/:userId', diaryController.getDiary); // 다이어리 조회

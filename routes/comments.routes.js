@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middlewares/authMiddlewares');
 
-const CommentController = require('../controllers/commensts.controllers');
+const CommentController = require('../controllers/comments.controllers');
 const commentController = new CommentController();
 
 router.get('/:userId', commentController.getComment);
