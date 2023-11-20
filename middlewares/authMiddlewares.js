@@ -1,65 +1,117 @@
-const jwt = require("jsonwebtoken");
-const { Users } = require("../models");
-require("dotenv").config();
-module.exports = async (req, res, next) => {
+// require('dotenv').config();
+// const jwt = require('jsonwebtoken');
+// const { User } = require('../models');
+
+// module.exports = async (req, res, next) => {
+//   try {
+//     const accessToken = req.cookies.accessToken;
+//     const refreshToken = req.cookies.refreshToken;
+
+//     if (!accessToken) {
+//       throw new Error('로그인 후 사용하세요');
+//     }
+
+//     let accessValidate = null;
+//     let refreshValidate = null;
+
+//     try {
+//       accessValidate = jwt.verify(accessToken, process.env.SECRET_KEY);
+//     } catch (error) {
+//       accessValidate = null;
+//     }
+
+//     try {
+//       refreshValidate = jwt.verify(refreshToken, process.env.SECRET_KEY);
+//     } catch (error) {
+//       refreshValidate = null;
+//     }
+
+//     try {
+//       if (!accessValidate && !refreshValidate) {
+//         throw new Error('로그인 기한이 만료되었습니다');
+//       }
+
+//       if (!accessValidate && refreshValidate) {
+//         const user = await User.findOne({
+//           where: { refreshToken: refreshToken },
+//         });
+
+//         if (!user) {
+//           throw new Error('로그인 기한이 만료되었습니다');
+//         }
+
+//         const userId = user.userId;
+
+//         const newAccess = jwt.sign({ userId }, process.env.SECRET_KEY, {
+//           expiresIn: '1h',
+//         });
+//         console.log(newAccess, 'accessToken 재발급');
+
+//         return res.status(201).json({
+//           accessToken: newAccess,
+//           refreshToken: refreshToken,
+//           message: 'accessToken이 재발급 되었습니다',
+//         });
+//       }
+//       if (accessValidate && !refreshValidate) {
+//         const { userId } = accessValidate;
+//         const user = await User.findOne({ where: { userId } });
+//         if (!user) {
+//           throw new Error('로그인 기한이 만료되었습니다');
+//         }
+
+//         const newRefresh = jwt.sign({ userId }, process.env.SECRET_KEY, {
+//           expiresIn: '14d',
+//         });
+//         console.timeLog(newRefresh, 'refreshToken 재발급');
+
+//         await User.update({ refreshToken: newRefresh }, { where: { userId } });
+//       }
+
+//       if (accessValidate && refreshValidate) {
+//         const { userId } = accessValidate;
+//         User.findOne({
+//           where: { userId },
+//           attributes: ['userId', 'email', 'nickname'],
+//         }).then((user) => {
+//           res.locals.user = user;
+//           res.locals.accessToken = accessToken;
+//           next();
+//         });
+//       }
+//     } catch (error) {
+//       next(error);
+//     }
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+// middlewares/auth-middleware.js
+
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
+const { Users } = require('../models');
+
+module.exports = (req, res, next) => {
+  const { authorization } = req.headers;
+  const [authType, authToken] = (authorization || '').split(' ');
+  if (!authToken || authType !== 'Bearer') {
+    res.status(401).send({
+      errorMessage: '로그인 후 이용 가능한 기능입니다.',
+    });
+    return;
+  }
+
   try {
-    console.log(req.headers);
-
-    // const { accesstoken, refreshtoken } = req.cookies;
-    const { accesstoken, refreshtoken } = req.headers;
-    if (!accesstoken || !refreshtoken) {
-      throw new Error("로그인 후 사용하세요");
-    }
-
-    const givemeAccess = accessValidate(accesstoken);
-    const givemeRefresh = refreshValidate(refreshtoken);
-
-    function accessValidate(accesstoken) {
-      try {
-        jwt.verify(accesstoken, process.env.SECRET_KEY);
-        return true;
-      } catch (error) {
-        return false;
-      }
-    }
-
-    function refreshValidate(refreshtoken) {
-      try {
-        jwt.verify(refreshtoken, process.env.SECRET_KEY);
-        return true;
-      } catch (error) {
-        return false;
-      }
-    }
-
-    if (!givemeRefresh)
-      return res.status(419).json({ message: "다시 로그인 해주시길 바랍니다" });
-
-    if (!givemeAccess) {
-      const { userId } = jwt.verify(refreshtoken, process.env.SECRET_KEY);
-
-      const newAccessToken = jwt.sign(
-        { userId: userId },
-        process.env.SECRET_KEY,
-        { expiresIn: "10d" }
-      );
-
-      const user = await Users.findByPk(userId);
-
-      res.cookie("accessToken", newAccessToken);
-      console.log("토큰 재발급 되었습니다");
-
+    const { userId } = jwt.verify(authToken, process.env.SECRET_KEY);
+    console.log('middleware:::::::::::::::::::::::::::::::::::::', userId);
+    Users.findByPk(userId).then((user) => {
       res.locals.user = user;
-    } else {
-      const { userId } = jwt.verify(accesstoken, process.env.SECRET_KEY);
-      const user = await Users.findByPk(userId);
-      res.locals.user = user;
-    }
-    next();
-  } catch (error) {
-    console.trace(error);
-    return res.status(403).send({
-      errorMessage: "로그인이 필요합니다.",
+      next();
+    });
+  } catch (err) {
+    res.status(401).send({
+      errorMessage: '로그인 후 이용 가능한 기능입니다.',
     });
   }
 };

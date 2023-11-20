@@ -1,9 +1,31 @@
-const { Users, MyHomeCounts, Coupons } = require("../models");
+const { Users, MyHomeCounts, Certifications } = require("../models");
 const { Op } = require("sequelize");
 class UsersRepositories {
   createUser = async (user) => {
     const createUser = await Users.create(user);
     return createUser;
+  };
+
+  authEmail = async ({ email }) => {
+    const authEmail = await Certifications.findOne({ where: { email } });
+    return authEmail;
+  };
+
+  emailCheck = async ({ email }) => {
+    const emailCheck = await Certifications.update(
+      { certificationCheck: true },
+      { where: { email } },
+    );
+    return emailCheck;
+  };
+
+  findByEmail = async ({ email }) => {
+    const findEmail = await Users.findOne({ where: { email } });
+    return findEmail;
+  };
+  deleteEmail = async ({ email }) => {
+    const destroyEmail = await Certifications.destroy({ where: { email } });
+    return destroyEmail;
   };
 
   findOneId = async (userId) => {
@@ -25,7 +47,7 @@ class UsersRepositories {
     return findById;
   };
 
-  updateRefresh = async (refreshToken, user) => {
+  updateRefresh = async ({user, refreshToken}) => {
     await Users.update({ refreshToken }, { where: { userId: user.userId } });
   };
 

@@ -1,6 +1,7 @@
 const UsersRepositories = require("../repositories/users.repositories");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const authEmail = require("../util/nodemailer");
 require("dotenv").config();
 
 class UsersService {
@@ -26,7 +27,8 @@ class UsersService {
 
   emailDuplicates = async (email) => {
     return await this.usersRepositories.findOneEmail({
-      email: email + "@kw.ac.kr",
+      // email: email + "@kw.ac.kr",
+      email: email
     });
   };
 
@@ -36,10 +38,10 @@ class UsersService {
   //   });
   // };
 
-  userLogin = async (email, password) => {
+  userLogin = async ({email, password}) => {
     const user = await this.usersRepositories.findOneEmail({ email });
     if (!user) {
-      throw new Error("가입하신 회원이 아닙니다.");
+      throw new Error("가입하신 회원이 아닙니=다.");
     }
 
     const isEqual = await bcrypt.compare(password, user.password);
@@ -47,17 +49,62 @@ class UsersService {
       throw new Error("비밀번호가 다릅니다.");
     }
     const accesstoken = jwt.sign(
-      { userId: user.userId },
+      { 
+        userId: user.userId,
+        email: user.email,
+        name: user.name,
+        gender: user.gender,
+        birth: user.birth
+      },
       process.env.SECRET_KEY,
-      { expiresIn: "1h" }
+      { expiresIn: "7d" }
     );
     const refreshtoken = jwt.sign(
-      { userId: user.userId },
+      { 
+        userId: user.userId,
+        email: user.email,
+        name: user.name,
+        gender: user.gender,
+        birth: user.birth
+      },
       process.env.SECRET_KEY,
       { expiresIn: "14d" }
     );
-    await this.usersRepositories.updateRefresh(refreshtoken, user);
-    return { accesstoken, refreshtoken, userId: user.userId };
+    await this.usersRepositories.updateRefresh({user,refreshtoken});
+    return { user, accesstoken, refreshtoken };
+  };
+
+  emailCheck = async ({ email }) => {
+    console.log("@2222222222222");
+    const emailDuplicate = await this.usersRepositories.findByEmail({ email });
+    if (emailDuplicate) {
+      throw new Error('이미 가입된 이메일입니다.');
+    }
+    const emailVerified = await this.usersRepositories.authEmail({ email });
+    if (emailVerified) {
+      await this.usersRepositories.deleteEmail({ email });
+    }
+    console.log(email);
+    authEmail(email);
+  };
+
+  certification = async ({ email, certificationNum }) => {
+    const checkEmail = await this.usersRepositories.authEmail({ email });
+    if (!checkEmail) {
+      throw new Error('email 정보가 존재하지 않습니다');
+    }
+    if (checkEmail.certificationNum !== certificationNum) {
+      throw new Error('인증번호가 일치하지 않습니다');
+    }
+    if (checkEmail.certificationNum === certificationNum) {
+      const auth = await this.usersRepositories.emailCheck({ email });
+      return {
+        certificationId: auth.certificationId,
+        email: auth.email,
+        certificationNum: auth.certificationNum,
+        certificationCheck: auth.certificationCheck,
+      };
+    }
   };
 
   findOneId = async (userId) => {

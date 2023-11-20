@@ -6,35 +6,70 @@ module.exports = {
       userId: {
         allowNull: false,
         autoIncrement: true,
+        unique: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.DataTypes.INTEGER,
       },
       email: {
-        type: Sequelize.STRING
-      },
-      password: {
-        type: Sequelize.STRING
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
+        unique: true,
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
+      },
+      password: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
       },
       gender: {
-        type: Sequelize.STRING
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
       },
       birth: {
-        type: Sequelize.STRING
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
+      },
+      intro: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'defalt',
+      },
+      today: {
+        type: Sequelize.DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+      },
+      total: {
+        type: Sequelize.DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+      },
+      refreshToken: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
+        defaultValue: '',
+      },
+      snsId: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
+      },
+      provider: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Users');
-  }
+  },
 };

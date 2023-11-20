@@ -1,19 +1,20 @@
 const Joi = require('joi');
-const birthRegEx =/^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+const birthRegEx =
+  /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+// const nameRegEx = /^([a-zA-Z|가-힣]).{1,5}$/
 const passwordRegEx = /^(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*]{8,20}$/;
 module.exports = {
   signupSchema: Joi.object({
     email: Joi.string()
-      // .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
-      .alphanum()
+      .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
       .required()
       .error(new Error('이메일 형식이 올바르지 않습니다.')),
     name: Joi.string()
       // .pattern(nameRegEx)
-      // .max(10)
+      // .max(5)
       .required()
       .error(
-        new Error('이름은 최소 1~10자, 한글 또는 영문으로 구성되어야 합니다.')
+        new Error('이름은 최소 1~5자, 한글 또는 영문으로 구성되어야 합니다.')
       ),
     password: Joi.string()
       .pattern(passwordRegEx)
@@ -32,7 +33,7 @@ module.exports = {
 
   loginSchema: Joi.object({
     email: Joi.string()
-      //.email({ minDomainSegments: 2, tlds: { allow: ['kw.ac.kr'] } })
+      .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
       .required()
       .error(new Error('이메일 또는 패스워드를 확인해주세요.')),
     password: Joi.string()

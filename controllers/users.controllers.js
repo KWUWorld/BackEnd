@@ -14,30 +14,26 @@ class UsersController {
 
       if (!email || !name || !password || !confirm || !gender || !birth) {
         return res.status(400).send({
-          ok: false,
-          msg: '형식을 확인해주세요.',
+          message: '형식을 확인해주세요.',
         });
       }
 
       if (password !== confirm) {
         return res.status(400).send({
-          ok: false,
-          msg: '비밀번호가 일치하지 않습니다.',
+          message: '비밀번호가 일치하지 않습니다.',
         });
       }
 
       const emailcheck = await this.usersService.emailDuplicates(email);
       if (emailcheck) {
         return res.status(400).send({
-          ok: false,
-          msg: '이메일 중복검사를 해주세요.',
+          message: '이메일 중복검사를 해주세요.',
         });
       }
 
       if (name.includes(password) || password.includes(name)) {
         return res.status(400).send({
-          ok: false,
-          msg: '이름과 비밀번호를 다른형식으로 설정해주세요',
+          message: '이름과 비밀번호를 다른형식으로 설정해주세요',
         });
       }
 
@@ -61,14 +57,19 @@ class UsersController {
     try {
       const { email, password } = await Joi.loginSchema.validateAsync(req.body);
       console.log(req.body)
-      const user = await this.usersService.userLogin(email, password);
+      const user = await this.usersService.userLogin({email, password});
       res.cookie('accesstoken', user.accesstoken);
       res.cookie('refreshtoken', user.refreshtoken);
+      console.log(res.cookie,"11111111111")
       res.status(200).json({
+        userId: user.user.userId,
+        name : user.user.name,
+        gender : user.user.gender,
+        birth : user.user.birth,
         accesstoken: user.accesstoken,
         refreshtoken: user.refreshtoken,
-        userId: user.userId,
-        msg: '로그인에 성공하였습니다',
+        
+        message: '로그인에 성공하였습니다',
       });
       // res
       //   .status(200)
@@ -82,15 +83,23 @@ class UsersController {
     }
   };
 
-  //이메일 중복
+  //이메일 인증
   emailCheck = async (req, res, next) => {
     try {
       const { email } = req.body;
-      const emailCheck = await this.usersService.emailDuplicates(email);
-      if (emailCheck) {
-        throw new Error('이미 등록된 사용자입니다.');
-      }
-      res.status(200).send({ msg: '사용가능한 이메일입니다.' });
+      console.log(email,"111111111111111");
+      await this.usersService.emailCheck({ email });
+      res.status(200).send({ message: '인증 메일이 발송되었습니다.' });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  certification = async (req, res, next) => {
+    try {
+      const { email, certificationNum } = req.body;
+      await this.usersService.certification({ email, certificationNum });
+      res.status(200).json({ message: '인증 확인되었습니다' });
     } catch (error) {
       next(error);
     }
