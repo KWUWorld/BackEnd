@@ -9,6 +9,11 @@
             "date": 1700709517220,
             "name": "undefined\\warn\\2023-11-23.warn.log",
             "hash": "9165b8e9f1820006ef908bffc2c5012b54133da3a2e83d8e7328f26589b2f1a0"
+        },
+        {
+            "date": 1701515540241,
+            "name": "undefined\\warn\\2023-12-02.warn.log",
+            "hash": "a545953286d2d4f382bd73173f5f73cd16dcccf74f40404c3089d0cb67a270fa"
         }
     ],
     "hashType": "sha256"
