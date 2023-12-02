@@ -1,0 +1,20 @@
+[31m[error] - 2023-12-02 20:27:38[39m ::1 - - [02/Dec/2023:11:27:38 +0000] "POST /api/users/signup HTTP/1.1" 500 1044 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-02 20:57:53[39m ::1 - - [02/Dec/2023:11:57:53 +0000] "POST /api/users/signup HTTP/1.1" 500 1044 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-02 20:59:23[39m ::1 - - [02/Dec/2023:11:59:23 +0000] "POST /api/users/signup HTTP/1.1" 500 1044 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-02 20:59:31[39m ::1 - - [02/Dec/2023:11:59:31 +0000] "POST /api/users/signup HTTP/1.1" 500 1087 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-02 21:09:57[39m ::1 - - [02/Dec/2023:12:09:57 +0000] "POST /api/users/signup HTTP/1.1" 500 1087 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-02 21:10:16[39m ::1 - - [02/Dec/2023:12:10:16 +0000] "POST /api/users/signup HTTP/1.1" 500 1044 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-02 21:13:45[39m ::1 - - [02/Dec/2023:12:13:45 +0000] "POST /api/users/emailcheck HTTP/1.1" 500 1556 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-02 21:37:58[39m ::1 - - [02/Dec/2023:12:37:58 +0000] "POST /api/users/signup HTTP/1.1" 500 1044 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-02 22:17:24[39m ::1 - - [02/Dec/2023:13:17:24 +0000] "POST /api/users/signup HTTP/1.1" 500 1032 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-02 22:55:41[39m ::1 - - [02/Dec/2023:13:55:41 +0000] "POST /api/users/login HTTP/1.1" 500 1050 "-" "PostmanRuntime/7.29.2"
+

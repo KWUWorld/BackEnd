@@ -1,5 +1,5 @@
-const nodemailer = require('nodemailer');
-const { Certifications } = require('../models');
+const nodemailer = require("nodemailer");
+const { Certifications } = require("../models");
 
 const authEmail = (email) => {
   const certificationNum = Math.floor(Math.random() * 100000000);
@@ -17,11 +17,12 @@ const authEmail = (email) => {
   const emailForm = {
     from: process.env.NODEMAILER_EMAIL,
     to: email,
-    subject: 'kwuworld 이메일 인증요청입니다',
-    html:`kwuworld 이메일 인증요청입니다. <p>*인증번호는 ${certificationNum}입니다.*</p>`,
+    subject: "kwuworld 이메일 인증요청입니다",
+    html: `kwuworld 이메일 인증요청입니다. <p>*인증번호는 ${certificationNum}입니다.*</p>`,
   };
   const transporter = nodemailer.createTransport(configOptions);
   transporter.sendMail(emailForm);
-  Certifications.create({ email, certificationNum });
+  const data = Certifications.create({ email, certificationNum });
+  return data;
 };
 module.exports = authEmail;

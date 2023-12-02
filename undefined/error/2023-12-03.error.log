@@ -1,0 +1,22 @@
+[31m[error] - 2023-12-03 00:16:01[39m ::1 - - [02/Dec/2023:15:16:01 +0000] "POST /api/users/signup HTTP/1.1" 500 1037 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:17:28[39m ::1 - - [02/Dec/2023:15:17:28 +0000] "POST /api/users/signup HTTP/1.1" 500 1037 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:17:39[39m ::1 - - [02/Dec/2023:15:17:39 +0000] "POST /api/users/signup HTTP/1.1" 500 1037 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:33:17[39m ::1 - - [02/Dec/2023:15:33:17 +0000] "POST /api/users/signup HTTP/1.1" 500 1037 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:33:47[39m ::1 - - [02/Dec/2023:15:33:47 +0000] "POST /api/users/signup HTTP/1.1" 500 1037 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:33:59[39m ::1 - - [02/Dec/2023:15:33:59 +0000] "POST /api/users/signup HTTP/1.1" 500 1037 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:37:32[39m ::1 - - [02/Dec/2023:15:37:32 +0000] "POST /api/users/signup HTTP/1.1" 500 1037 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:46:14[39m ::1 - - [02/Dec/2023:15:46:14 +0000] "POST /api/users/emailcheck/auth HTTP/1.1" 500 511 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:46:28[39m ::1 - - [02/Dec/2023:15:46:28 +0000] "POST /api/users/emailcheck/auth HTTP/1.1" 500 511 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:55:16[39m ::1 - - [02/Dec/2023:15:55:16 +0000] "POST /api/users/signup HTTP/1.1" 500 1148 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
+[31m[error] - 2023-12-03 00:59:00[39m ::1 - - [02/Dec/2023:15:59:00 +0000] "POST /api/users/login HTTP/1.1" 500 495 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+
