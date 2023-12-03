@@ -30,3 +30,15 @@
 
 [33m[warn] - 2023-12-03 00:59:43[39m ::1 - - [02/Dec/2023:15:59:43 +0000] "GET /users/myhome/5 HTTP/1.1" 404 153 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
 
+[33m[warn] - 2023-12-03 02:39:57[39m ::1 - - [02/Dec/2023:17:39:56 +0000] "GET /api/users/myhome/1 HTTP/1.1" 400 76 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 02:40:04[39m ::1 - - [02/Dec/2023:17:40:04 +0000] "GET /api/users/myhome/1 HTTP/1.1" 400 76 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 02:40:22[39m ::1 - - [02/Dec/2023:17:40:22 +0000] "GET /api/users/myhome/1 HTTP/1.1" 400 76 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 02:40:26[39m ::1 - - [02/Dec/2023:17:40:26 +0000] "GET /api/users/myhome/1 HTTP/1.1" 400 76 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 02:40:30[39m ::1 - - [02/Dec/2023:17:40:30 +0000] "GET /api/users/myhome/1 HTTP/1.1" 400 76 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 02:42:13[39m ::1 - - [02/Dec/2023:17:42:13 +0000] "GET /api/users/myhome/1 HTTP/1.1" 400 76 "-" "PostmanRuntime/7.29.2"
+
