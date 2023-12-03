@@ -127,7 +127,7 @@ class UsersService {
     console.log(maxUserId,"1111111111111111111");
     const random = Math.ceil(Math.random() * maxUserId.userId) + "";
     console.log(random,"22222222222");
-    return await this.usersRepositories.findByUser({random});
+    return await this.usersRepositories.findByUser({userId:random});
   };
 
   todayTotal = async (req, res, next) => {

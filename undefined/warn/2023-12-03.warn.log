@@ -62,3 +62,5 @@
 
 [33m[warn] - 2023-12-03 18:09:03[39m ::1 - - [03/Dec/2023:09:09:03 +0000] "POST /api/bests/2 HTTP/1.1" 401 66 "-" "PostmanRuntime/7.29.2"
 
+[33m[warn] - 2023-12-03 18:19:35[39m ::1 - - [03/Dec/2023:09:19:35 +0000] "GET /api/users/surfing HTTP/1.1" 400 79 "-" "PostmanRuntime/7.29.2"
+
