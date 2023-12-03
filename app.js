@@ -10,8 +10,6 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const { myHomeCountSchedule } = require("./util/setSchedule");
 
-const cookieParser = require("cookie-parser");
-const session = require("cookie-session");
 const app = express();
 const https = HTTPS.createServer(app);
 const router = require("./routes");
@@ -19,6 +17,7 @@ const port = process.env.EXPRESS_PORT || 4000;
 let corsOptions = {
   origin: ["*", "http://localhost:3000", "https://kwuworld.org"],
   //origin: process.env.FRONT_END_URL,
+  allowedHeaders: ['Content-Type', 'Authorization', 'cookies'],
   credentials: true,
 };
 
