@@ -124,10 +124,10 @@ class UsersService {
 
   surfing = async () => {
     const maxUserId = await this.usersRepositories.findMaxUser();
-
+    console.log(maxUserId,"1111111111111111111");
     const random = Math.ceil(Math.random() * maxUserId.userId) + "";
-
-    return await this.usersRepositories.findByUser(random);
+    console.log(random,"22222222222");
+    return await this.usersRepositories.findByUser({random});
   };
 
   todayTotal = async (req, res, next) => {
