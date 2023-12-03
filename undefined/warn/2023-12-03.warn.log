@@ -42,3 +42,23 @@
 
 [33m[warn] - 2023-12-03 02:42:13[39m ::1 - - [02/Dec/2023:17:42:13 +0000] "GET /api/users/myhome/1 HTTP/1.1" 400 76 "-" "PostmanRuntime/7.29.2"
 
+[33m[warn] - 2023-12-03 17:56:41[39m ::1 - - [03/Dec/2023:08:56:41 +0000] "GET /api/users/surfing HTTP/1.1" 400 79 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 17:57:38[39m ::1 - - [03/Dec/2023:08:57:38 +0000] "GET /api/users/surfing HTTP/1.1" 400 79 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 18:02:35[39m ::1 - - [03/Dec/2023:09:02:35 +0000] "GET /api/users/surfing HTTP/1.1" 400 79 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 18:06:34[39m ::1 - - [03/Dec/2023:09:06:34 +0000] "GET /api/users/surfing HTTP/1.1" 400 79 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 18:07:24[39m ::1 - - [03/Dec/2023:09:07:24 +0000] "GET /api/users/surfing HTTP/1.1" 400 42 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 18:07:49[39m ::1 - - [03/Dec/2023:09:07:49 +0000] "GET /api/users/surfing HTTP/1.1" 400 79 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 18:08:06[39m ::1 - - [03/Dec/2023:09:08:06 +0000] "GET /api/users/surfing HTTP/1.1" 400 42 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 18:08:24[39m ::1 - - [03/Dec/2023:09:08:24 +0000] "GET /api/users/surfing HTTP/1.1" 400 79 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 18:08:58[39m ::1 - - [03/Dec/2023:09:08:58 +0000] "POST /api/bests/2 HTTP/1.1" 401 66 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-03 18:09:03[39m ::1 - - [03/Dec/2023:09:09:03 +0000] "POST /api/bests/2 HTTP/1.1" 401 66 "-" "PostmanRuntime/7.29.2"
+

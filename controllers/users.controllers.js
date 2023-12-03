@@ -109,8 +109,9 @@ class UsersController {
 
   surfing = async (req, res, next) => {
     try {
-      const result = await this.usersService.surfing();
-      res.status(200).send({ data: result.userId });
+      const result = await this.usersService.surfing({});
+      res.status(200).send({ data: result });
+      console.log(result,"3333333333");
     } catch (error) {
       res.status(error.status || 400).send({ ok: false, msg: error.message });
     }
