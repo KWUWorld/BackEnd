@@ -1,6 +1,7 @@
 module.exports = (req, res, next) => {
     try {
       const { accesstoken, refreshtoken } = req.cookies;
+      console.log(req.cookies,"12121212121");
       // const { accesstoken, refreshtoken } = req.headers;
       if (accesstoken || refreshtoken) {
         return res.status(403).send({
