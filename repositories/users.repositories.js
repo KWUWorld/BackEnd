@@ -59,7 +59,7 @@ class UsersRepositories {
     });
   };
 
-  findByUser = async (userId) => {
+  findByUser = async ({userId}) => {
     return Users.findOne({
       attributes: {
         exclude: ["password"],

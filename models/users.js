@@ -25,10 +25,10 @@ module.exports = (sequelize, DataTypes) => {
         as: 'Guestbooks',
         foreignKey: 'userId',
       });
-      // this.hasMany(models.Ilchons, {
-      //   as: 'Ilchons',
-      //   foreignKey: 'userId',
-      // });
+      this.hasMany(models.Counts, {
+        as: 'Counts',
+        foreignKey: 'userId',
+      });
     }
   }
   Users.init(

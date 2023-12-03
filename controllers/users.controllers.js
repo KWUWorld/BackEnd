@@ -121,6 +121,7 @@ class UsersController {
       await this.usersService.todayTotal(req, res);
       const result = await this.usersService.myhome(req, res);
       res.status(200).send({ data: result });
+      console.log(result, "1111111111111111111111")
     } catch (error) {
       res.status(error.status || 400).send({ ok: false, msg: error.message });
     }
