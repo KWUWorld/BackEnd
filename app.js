@@ -19,7 +19,7 @@ const port = process.env.EXPRESS_PORT || 4000;
 let corsOptions = {
   origin: ["*", "http://localhost:3000", "https://kwuworld.org"],
   //origin: process.env.FRONT_END_URL,
-  //credentials: true,
+  credentials: true,
 };
 
 myHomeCountSchedule();
