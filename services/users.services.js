@@ -136,7 +136,7 @@ class UsersService {
 
     const { userId } = req.params;
 
-    const findByUser = await this.usersRepositories.findByUser(userId);
+    const findByUser = await this.usersRepositories.findByUser({userId});
 
     if (!findByUser) throw new Error("존재하지 않는 미니홈피 입니다.");
 
@@ -182,7 +182,7 @@ class UsersService {
 
   myhome = async (req, res, next) => {
     const { userId } = req.params;
-    return await this.usersRepositories.findByUser(userId);
+    return await this.usersRepositories.findByUser({userId});
   };
 
   introupdate = async (userId, intro) => {
