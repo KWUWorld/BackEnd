@@ -25,8 +25,8 @@ let corsOptions = {
 
 myHomeCountSchedule();
 
-app.use(cookieParser());
 app.use(cors(corsOptions));
+app.use(cookieParser());
 app.use(helmet());
 app.use(morgan("combined", { stream }));
 app.use(express.json());
