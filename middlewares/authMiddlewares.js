@@ -5,6 +5,7 @@ module.exports = async (req, res, next) => {
   try {
 
     const { accesstoken, refreshtoken } = req.cookies;
+    console.log(req.cookies,"12121212121");
     // const { accesstoken, refreshtoken } = req.headers;
     if (!accesstoken || !refreshtoken) {
       throw new Error('로그인 후 사용하세요');
