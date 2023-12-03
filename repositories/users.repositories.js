@@ -1,4 +1,4 @@
-const { Users, MyHomeCounts, Certifications } = require("../models");
+const { Users, Counts, Certifications } = require("../models");
 const { Op } = require("sequelize");
 class UsersRepositories {
   createUser = async (user) => {
@@ -69,16 +69,16 @@ class UsersRepositories {
   };
 
   todayTotalCheck = async ({ ip, userId }) => {
-    return await MyHomeCounts.findOne({ where: { ip, userId } });
+    return await Counts.findOne({ where: { ip, userId } });
   };
 
   createTodayTotal = async ({ userId, ip, time }) => {
-    await MyHomeCounts.create({ userId, ip, time });
+    await Counts.create({ userId, ip, time });
     await Users.increment({ today: 1, total: 1 }, { where: { userId } });
   };
 
   todayTotalCount = async ({ ip, time, userId }) => {
-    await MyHomeCounts.update({ time }, { where: { ip, userId } });
+    await Counts.update({ time }, { where: { ip, userId } });
     await Users.increment({ today: 1, total: 1 }, { where: { userId } });
   };
 
