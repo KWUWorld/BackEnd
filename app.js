@@ -19,7 +19,6 @@ let corsOptions = {
   origin: ["http://localhost:3000", "https://kwuworld.org", process.env.FRONT_END_URL],
   //origin: process.env.FRONT_END_URL,
   allowedHeaders: ['Content-Type', 'Authorization', 'cookies'],
-  exposedHeaders: ["set-cookie"],
   credentials: true,
 };
 

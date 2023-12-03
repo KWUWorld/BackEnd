@@ -61,11 +61,11 @@ class UsersController {
       res.cookie('accesstoken', user.accesstoken,{httpOnly: true,
       secure: true,
       sameSite: 'none',
-      domain: 'localhost',
+      
       maxAge: 6 * 60 * 60 * 1000,});
       res.cookie('refreshtoken', user.refreshtoken,{httpOnly: true,
       secure: true,
-      sameSite: 'none',domain: 'localhost',
+      sameSite: 'none',
       maxAge: 6 * 60 * 60 * 1000,});
       console.log(res.cookie,"11111111111")
       res.status(200).json({
