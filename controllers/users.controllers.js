@@ -58,15 +58,19 @@ class UsersController {
       const { email, password } = await Joi.loginSchema.validateAsync(req.body);
       console.log(req.body)
       const user = await this.usersService.userLogin({email, password});
-      res.cookie('accesstoken', user.accesstoken,{httpOnly: true,
+      res.cookie('accesstoken', user.accesstoken,
+      {httpOnly: true,
       secure: true,
       sameSite: 'none',
       
-      maxAge: 6 * 60 * 60 * 1000,});
-      res.cookie('refreshtoken', user.refreshtoken,{httpOnly: true,
+      maxAge: 6 * 60 * 60 * 1000,}
+      );
+      res.cookie('refreshtoken', user.refreshtoken,
+      {httpOnly: true,
       secure: true,
       sameSite: 'none',
-      maxAge: 6 * 60 * 60 * 1000,});
+      maxAge: 6 * 60 * 60 * 1000,}
+      );
       console.log(res.cookie,"11111111111")
       res.status(200).json({
         userId: user.user.userId,

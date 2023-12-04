@@ -16,16 +16,21 @@ class DiaryRepository {
   };
 
   updateDiary = async (diaryId, dirImg, content) => {
+    console.log(dirImg,"11111111");
     await Diaries.update({ content, dirImg }, { where: { diaryId } });
 
     return await Diaries.findOne({ where: { diaryId } });
   };
 
   deleteDiary = async (diaryId) => {
-    const deleteDiaryImg = await Diaries.findOne({ where: { diaryId } });
 
     const deleteDiaryData = await Diaries.destroy({ where: { diaryId } });
     return deleteDiaryData;
+  };
+
+  getDiary = async (diaryId) => {
+    const getDiary = await Diaries.findOne({ where: { diaryId },raw:true, });
+    return getDiary;
   };
 }
 
