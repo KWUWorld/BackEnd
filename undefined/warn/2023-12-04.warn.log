@@ -182,3 +182,5 @@
 
 [33m[warn] - 2023-12-04 23:23:12[39m ::1 - - [04/Dec/2023:14:23:12 +0000] "POST /api/diaries/1 HTTP/1.1" 403 48 "-" "PostmanRuntime/7.29.2"
 
+[33m[warn] - 2023-12-04 23:36:43[39m ::1 - - [04/Dec/2023:14:36:43 +0000] "POST /api/users/login HTTP/1.1" 403 58 "-" "PostmanRuntime/7.29.2"
+
