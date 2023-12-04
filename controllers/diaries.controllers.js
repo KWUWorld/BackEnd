@@ -63,7 +63,7 @@ class DiaryController {
         dirImg,
         content
       );
-      res.status(200).json({ data: updateDiaryData });
+      res.status(200).json({ data: updateDiaryData, message:"다이어리가 수정되었습니다." });
     } catch (err) {
       res.status(400).json({ err: err.message });
     }
@@ -80,7 +80,7 @@ class DiaryController {
         throw new Error('삭제 권한이 없습니다.');
       }
       const deleteDiaryData = await this.diaryController.deleteDiary(diaryId);
-      res.status(200).json({ msg: '삭제되었습니다!' });
+      res.status(200).json({ msg: '다이어리가 삭제되었습니다!' });
     } catch (err) {
       res.status(400).json({ err: err.message });
     }
