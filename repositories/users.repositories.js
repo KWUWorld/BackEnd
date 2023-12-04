@@ -124,5 +124,13 @@ class UsersRepositories {
   // };
 
   // chargeCoupons = async () => {};
+  introsix = async (userId, sixwords) => {
+    const introsix = await Users.update(
+      { sixwords: sixwords },
+      { where: { userId } }
+    );
+    return introsix;
+  };
+
 }
 module.exports = UsersRepositories;

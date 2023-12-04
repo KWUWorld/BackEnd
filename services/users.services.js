@@ -204,5 +204,13 @@ class UsersService {
     console.log(logout,"222222222");
     return logout
   }
+
+  introsix = async (userId, sixwords) => {
+    const introsix = await this.usersRepositories.introsix(userId, sixwords);
+    return {
+      userId: introsix.userId,
+      sixwords: introsix.sixwords,
+    };
+  };
 }
 module.exports = UsersService;

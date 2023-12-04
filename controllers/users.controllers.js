@@ -216,6 +216,19 @@ class UsersController {
         .send({ ok: false, msg: error.message });
     }
   }
+
+  introsix = async (req, res, next) => {
+    try {
+      const { userId } = req.params;
+      const { sixwords } = req.body;
+      const introsix = await this.usersService.introsix(userId, sixwords);
+      res
+        .status(200)
+        .json({ data: introsix, msg: 'today is가 수정되었습니다' });
+    } catch (error) {
+      res.status(error.status || 400).send({ ok: false, msg: error.message });
+    }
+  };
 }
 
 module.exports = UsersController;
