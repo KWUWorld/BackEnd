@@ -50,7 +50,7 @@ class S3ImageController {
         if (error) {
           console.log('err', error, error.stack);
         } else {
-          console.log(data, '정말 삭제 되었습니다.');
+          console.log(data, '변경완료 되었습니다.');
         }
       });
       next();
