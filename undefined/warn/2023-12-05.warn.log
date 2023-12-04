@@ -22,3 +22,9 @@
 
 [33m[warn] - 2023-12-05 02:44:31[39m ::1 - - [04/Dec/2023:17:44:31 +0000] "POST /api/users/login HTTP/1.1" 403 58 "-" "PostmanRuntime/7.29.2"
 
+[33m[warn] - 2023-12-05 03:01:25[39m ::1 - - [04/Dec/2023:18:01:25 +0000] "POST /api/users/signup HTTP/1.1" 403 58 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-05 03:01:32[39m ::1 - - [04/Dec/2023:18:01:32 +0000] "POST /api/users/signup HTTP/1.1" 400 43 "-" "PostmanRuntime/7.29.2"
+
+[31m[error] - 2023-12-05 03:02:17[39m ::1 - - [04/Dec/2023:18:02:17 +0000] "POST /api/users/signup HTTP/1.1" 500 181 "-" "PostmanRuntime/7.29.2"
+

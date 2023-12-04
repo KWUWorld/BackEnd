@@ -42,23 +42,31 @@ module.exports = (sequelize, DataTypes) => {
       },
       email: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       password: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       gender: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       birth: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
+      },
+      department : {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      hb : {
+        type : DataTypes.STRING,
+        allowNull: false,
       },
       intro: {
         type: DataTypes.STRING,
