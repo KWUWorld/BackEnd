@@ -45,10 +45,12 @@ class DiaryController {
 
     // 수정사항에 이미지 파일이 있으면 key값으로 이름 정해주고 없으면 Null
     const imageFileName = req.file ? req.file.key : null;
+    console.log(imageFileName,"11111111111111111111111111111");
     // imageFileName에 파일명 들어가면 s3 url주소 추가
     const dirImg = imageFileName
       ? process.env.S3_STORAGE_URL + imageFileName
       : undefined;
+      console.log(dirImg,"3333333333");
     try {
       // 본인 이외의 사람이 다이어리 수정시 예외처리
       if (userInfo.userId !== Number(userId)) {
@@ -84,5 +86,6 @@ class DiaryController {
     }
   };
 }
+
 
 module.exports = DiaryController;

@@ -5,7 +5,7 @@ const authMiddleware = require('../middlewares/authMiddlewares');
 const DiariyController = require('../controllers/diaries.controllers');
 const diaryController = new DiariyController();
 
-const Upload = require('../middlewares/ImgUploadMiddleware');
+const Upload = require('../middlewares/diaryImgUploadMiddleware');
 const upload = new Upload();
 
 router.get('/:userId', diaryController.getDiary); // 다이어리 조회
@@ -17,7 +17,8 @@ router.post(
 ); // 다이어리 작성
 router.put(
   '/:diaryId/:userId',
-  authMiddleware, //나중에 다시 수정
+  authMiddleware,
+  upload.delete_file, //나중에 다시 수정
   upload.upload.single('dirImg'), // 다이어리 이미지 수정
   diaryController.updateDiary
 ); // 다이어리 내용 수정
