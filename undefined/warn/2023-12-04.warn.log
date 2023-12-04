@@ -176,3 +176,9 @@
 
 [33m[warn] - 2023-12-04 21:50:07[39m ::1 - - [04/Dec/2023:12:50:07 +0000] "DELETE /api/diaries/4/2 HTTP/1.1" 400 49 "-" "PostmanRuntime/7.29.2"
 
+[33m[warn] - 2023-12-04 23:22:08[39m ::1 - - [04/Dec/2023:14:22:08 +0000] "POST /api/diaries/1 HTTP/1.1" 403 48 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-04 23:22:14[39m ::1 - - [04/Dec/2023:14:22:14 +0000] "POST /api/diaries/1 HTTP/1.1" 403 48 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-04 23:23:12[39m ::1 - - [04/Dec/2023:14:23:12 +0000] "POST /api/diaries/1 HTTP/1.1" 403 48 "-" "PostmanRuntime/7.29.2"
+
