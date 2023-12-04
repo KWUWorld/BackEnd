@@ -12,5 +12,5 @@ router.post('/emailcheck/auth', userController.certification);
 router.get('/surfing', userController.surfing);
 router.get('/myhome/:userId', userController.myhome);
 router.put('/myhome/:userId', auth, userController.intro);
-// router.post('/logout',userController.logout);
+router.post('/logout',auth,userController.logout);
 module.exports = router;
