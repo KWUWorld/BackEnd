@@ -8,7 +8,7 @@ class UsersService {
   usersRepositories = new UsersRepositories();
 
   createUser = async (users) => {
-    const { email, name, password, gender, birth } = users;
+    const { email, name, password, gender, birth, department, hb } = users;
 
     // let isGender;
 
@@ -22,6 +22,8 @@ class UsersService {
       // gender: `https://qportminiprojectmini.s3.ap-northeast-2.amazonaws.com/sample/${isGender}.png`,
       gender: gender,
       birth: birth,
+      department : department,
+      hb : hb,
     });
   };
 
@@ -54,7 +56,9 @@ class UsersService {
         email: user.email,
         name: user.name,
         gender: user.gender,
-        birth: user.birth
+        birth: user.birth,
+        department : user.department,
+        hb : user.hb,
       },
       process.env.SECRET_KEY,
       { expiresIn: "7d" }
@@ -65,7 +69,9 @@ class UsersService {
         email: user.email,
         name: user.name,
         gender: user.gender,
-        birth: user.birth
+        birth: user.birth,
+        department : user.department,
+        hb : user.hb,
       },
       process.env.SECRET_KEY,
       { expiresIn: "14d" }

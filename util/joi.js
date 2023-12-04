@@ -33,6 +33,10 @@ module.exports = {
       .pattern(birthRegEx)
       .required()
       .error(new Error("생일형식을 확인해주세요")),
+    department :Joi.string()
+    .required(),
+    hb: Joi.string()
+    .required(),
   }),
 
   loginSchema: Joi.object({

@@ -12,24 +12,32 @@ module.exports = {
       },
       email: {
         type: Sequelize.DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         unique: true,
       },
       name: {
         type: Sequelize.DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       password: {
         type: Sequelize.DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       gender: {
         type: Sequelize.DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       birth: {
         type: Sequelize.DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
+      },
+      department: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false,
+      },
+      hb: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false,
       },
       intro: {
         type: Sequelize.DataTypes.STRING,

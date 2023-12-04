@@ -9,10 +9,10 @@ class UsersController {
   signup = async (req, res, next) => {
     try {
       console.log(req.body);
-      const { email, name, password, confirm, gender, birth } =
+      const { email, name, password, confirm, gender, birth, department, hb } =
         await Joi.signupSchema.validateAsync(req.body);
 
-      if (!email || !name || !password || !confirm || !gender || !birth) {
+      if (!email || !name || !password || !confirm || !gender || !birth ||! department || !hb) {
         return res.status(400).send({
           message: '형식을 확인해주세요.',
         });
@@ -44,6 +44,8 @@ class UsersController {
         password: hashed,
         gender: gender,
         birth: birth,
+        department : department,
+        hb : hb,
       });
 
       await this.usersService.createUser(users);
@@ -77,6 +79,8 @@ class UsersController {
         name : user.user.name,
         gender : user.user.gender,
         birth : user.user.birth,
+        department : user.user.department,
+        hb : user.user.hb,
         accesstoken: user.accesstoken,
         refreshtoken: user.refreshtoken,
         
