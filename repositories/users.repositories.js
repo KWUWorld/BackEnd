@@ -47,8 +47,8 @@ class UsersRepositories {
     return findById;
   };
 
-  updateRefresh = async ({user, refreshToken}) => {
-    await Users.update({ refreshToken }, { where: { userId: user.userId } });
+  updateRefresh = async ({user, refreshtoken}) => {
+    await Users.update({ refreshtoken }, { where: { userId: user.userId } });
   };
 
   // ----------------------------------------------------------------
@@ -94,6 +94,11 @@ class UsersRepositories {
       { where: { userId } }
     );
     return introupdate;
+  };
+
+  updatetoken = async ({userId, accesstoken,refreshtoken}) => {
+    await Users.update({ accesstoken,refreshtoken }, { where: { userId } });
+    console.log(userId,accesstoken,refreshtoken,"11111111111111");
   };
 
   // chargeDotori = async (userId, price) => {

@@ -183,6 +183,35 @@ class UsersController {
         .send({ ok: false, msg: error.message });
     }
   };
+  logout =async (req,res,next)=>{
+    try{
+      const {userId} = res.locals.user;
+      const accesstoken = req.cookies.accesstoken;
+      const refreshtoken = req.cookies.refreshtoken;
+      
+      await this.usersService.logout(userId,accesstoken,refreshtoken);
+      res.cookie('accesstoken',"",
+      {httpOnly: true,
+      secure: true,
+      sameSite: 'none',
+      maxAge: 6 * 60 * 60 * 1000,}
+      );
+      res.cookie('refreshtoken', "",
+      {httpOnly: true,
+      secure: true,
+      sameSite: 'none',
+      maxAge: 6 * 60 * 60 * 1000,}
+      
+      );
+
+      res.status(200).json("로그아웃!");
+      
+    }catch(error){
+      res
+        .status(error.status || 400)
+        .send({ ok: false, msg: error.message });
+    }
+  }
 }
 
 module.exports = UsersController;

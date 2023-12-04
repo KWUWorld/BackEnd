@@ -192,5 +192,11 @@ class UsersService {
       intro: introupdate.intro,
     };
   };
+
+  logout = async(userId,accesstoken,refreshtoken)=>{
+    const logout = await this.usersRepositories.updatetoken(userId,accesstoken,refreshtoken)
+    console.log(logout,"222222222");
+    return logout
+  }
 }
 module.exports = UsersService;
