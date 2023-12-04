@@ -42,7 +42,12 @@ module.exports = {
       intro: {
         type: Sequelize.DataTypes.STRING,
         allowNull: false,
-        defaultValue: 'defalt',
+        defaultValue: 'default',
+      },
+      sixwords: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'default',
       },
       today: {
         type: Sequelize.DataTypes.INTEGER,

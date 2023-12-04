@@ -73,6 +73,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 'default',
       },
+      sixwords: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'default',
+      },
       today: {
         type: DataTypes.INTEGER,
         allowNull: false,

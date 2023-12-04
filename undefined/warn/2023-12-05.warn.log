@@ -28,3 +28,15 @@
 
 [31m[error] - 2023-12-05 03:02:17[39m ::1 - - [04/Dec/2023:18:02:17 +0000] "POST /api/users/signup HTTP/1.1" 500 181 "-" "PostmanRuntime/7.29.2"
 
+[33m[warn] - 2023-12-05 03:56:37[39m ::1 - - [04/Dec/2023:18:56:37 +0000] "PUT /api/users/today/myhome/1 HTTP/1.1" 403 48 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-05 03:57:57[39m ::1 - - [04/Dec/2023:18:57:57 +0000] "PUT /api/users/today/myhome/1 HTTP/1.1" 403 48 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-05 03:58:33[39m ::1 - - [04/Dec/2023:18:58:33 +0000] "PUT /api/users/today/myhome/1 HTTP/1.1" 400 41 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-05 03:59:42[39m ::1 - - [04/Dec/2023:18:59:42 +0000] "PUT /api/users/myhome/today/1 HTTP/1.1" 400 41 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-05 04:00:15[39m ::1 - - [04/Dec/2023:19:00:15 +0000] "PUT /api/users/myhome/today/1 HTTP/1.1" 400 67 "-" "PostmanRuntime/7.29.2"
+
+[33m[warn] - 2023-12-05 04:01:59[39m ::1 - - [04/Dec/2023:19:01:59 +0000] "PUT /api/users/myhome/today/1 HTTP/1.1" 400 67 "-" "PostmanRuntime/7.29.2"
+
